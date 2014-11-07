@@ -18,8 +18,8 @@ AV.Cloud.beforeSave("_User", function(request, response) {
 });
 
 AV.Cloud.define("checkEmail", function(request, response) {
-    response.success("success!");
-    /*var query = new AV.Query("Top500Email");
+    //response.success("success!");
+    var query = new AV.Query("Top500Email");
     query.equalTo("emailSuffix", request.params.suffix);
     query.find({
         success:function() {
@@ -28,5 +28,5 @@ AV.Cloud.define("checkEmail", function(request, response) {
         error:function() {
             response.error("You are not in TOP 500, sorry!");
         }
-    });*/ 
+    }); 
 });
