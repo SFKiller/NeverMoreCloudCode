@@ -37,7 +37,7 @@ AV.Cloud.define("averageStars", function(request, response) {
     query.equalTo("emailSuffix", request.params.emailSuffix);
     query.find({
       success: function(results) {
-        if (results == null)
+        if (results == "")
             response.error("movie lookup failed");
         else
             response.success("success!");
