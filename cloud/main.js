@@ -20,10 +20,10 @@ AV.Cloud.beforeSave("_User", function(request, response) {
 AV.Cloud.define("checkEmail", function(request, response) {
     //response.success("success!");
     var query = new AV.Query("Top500Email");
-    query.equalTo("emailSuffix", request.params.suffix);
+    query.equalTo("emailSuffix", request.params.emailSuffix);
     query.find({
         success:function() {
-            //response.success("You are in TOP 500!");
+            response.success("You are in TOP 500!");
         },
         error:function() {
             response.error("You are not in TOP 500, sorry!");
