@@ -23,11 +23,9 @@ AV.Cloud.define("checkEmail", function(request, response) {
     query.equalTo("emailSuffix", request.params.emailSuffix);
     query.find({
         success:function(results) {
-            response.success(results[0].get("emailSuffix"));
             response.success("You are in TOP 500!");
         },
         error:function(error) {
-            response.error(error.code + ":" + error.message)
             response.error("You are not in TOP 500, sorry!");
         }
     }); 
