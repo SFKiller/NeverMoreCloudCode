@@ -37,6 +37,7 @@ AV.Cloud.define("averageStars", function(request, response) {
     query.equalTo("emailSuffix", request.params.emailSuffix);
     query.find({
       success: function(results) {
+        console.log(results);
         response.success("success!");
       },
       error: function() {
