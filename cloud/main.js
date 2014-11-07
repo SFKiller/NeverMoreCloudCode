@@ -4,7 +4,7 @@ AV.Cloud.define("hello", function(request, response) {
   response.success("Hello world!");
 });
 
-AV.Cloud.beforeSave("_User", function(request, response) {
+/*AV.Cloud.beforeSave("_User", function(request, response) {
     var email = request.object.get("email");
     var len = email.length;
     var suffix = email.SubString(email.IndexOf('@'), len - 1);
@@ -29,4 +29,17 @@ AV.Cloud.define("checkEmail", function(request, response) {
             response.error("You are not in TOP 500, sorry!");
         }
     }); 
+});*/
+
+AV.Cloud.define("averageStars", function(request, response) {
+  var query = new AV.Query("Top500Email");
+  query.equalTo("emailSuffix", request.params.emailSuffix);
+  query.find({
+    success: function(results) {
+      response.success("success!");
+    },
+    error: function() {
+      response.error("movie lookup failed");
+    }
+  });
 });
