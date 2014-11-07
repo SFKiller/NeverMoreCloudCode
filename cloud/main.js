@@ -32,14 +32,15 @@ AV.Cloud.define("checkEmail", function(request, response) {
 });*/
 
 AV.Cloud.define("averageStars", function(request, response) {
-  var query = new AV.Query("Top500Email");
-  query.equalTo("emailSuffix", request.params.emailSuffix);
-  query.find({
-    success: function(results) {
-      response.success("success!");
-    },
-    error: function() {
-      response.error("movie lookup failed");
-    }
-  });
+    console.log(request.params);
+    var query = new AV.Query("Top500Email");
+    query.equalTo("emailSuffix", request.params.emailSuffix);
+    query.find({
+      success: function(results) {
+        response.success("success!");
+      },
+      error: function() {
+        response.error("movie lookup failed");
+      }
+    });
 });
